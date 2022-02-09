@@ -56,16 +56,16 @@ jobs:
         run: flutter build apk --release
       - name: Build release .aab
         run: flutter build appbundle --release
-      - name: Create Github Release apk
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "build/app/outputs/flutter-apk/*.apk"
-          token: ${{ secrets.APK_RELEASE_TOKEN }}
-      - name: Create Github Release aab
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "build/app/outputs/bundle/release/*.aab"
-          token: ${{ secrets.APK_RELEASE_TOKEN }}
+#      - name: Create Github Release apk
+#        uses: ncipollo/release-action@v1
+#        with:
+#          artifacts: "build/app/outputs/flutter-apk/*.apk"
+#          token: ${{ secrets.APK_RELEASE_TOKEN }}
+#      - name: Create Github Release aab
+#        uses: ncipollo/release-action@v1
+#        with:
+#          artifacts: "build/app/outputs/bundle/release/*.aab"
+#          token: ${{ secrets.APK_RELEASE_TOKEN }}
 
 #build/app/outputs/flutter-apk/app-release.apk
 #build/app/outputs/bundle/release/app-release.aab
