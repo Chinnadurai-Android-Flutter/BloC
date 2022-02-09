@@ -4,7 +4,7 @@ on:
     branches:
       - master
     tags:
-      - '*'
+      - 'V.1.1'
 jobs:
   flutter_test:
     name: Runt flutter tester
