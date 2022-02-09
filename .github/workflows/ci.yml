@@ -46,11 +46,24 @@ jobs:
         - uses: subosito/flutter-action@v1
           with:
             channel: "stable"
-        - run: flutter pub get
-        - run: flutter clean
-        - run: flutter build apk --release
+        - name: Download pub dependencies
+          run: flutter pub get
+        - name: Flutter clean
+          run: flutter clean
+        - name: Run build_runner
+          run: flutter pub run build_runner build --delete-conflicting-outputs
+        - name: Build release .apk
+          run: flutter build apk --release
+        - name: Build release .aab
+          run: flutter build appbundle --release
+        - name: Create Github Release
+          uses: ncipollo/release-action@v1
+          with:
+            artifacts: "build/app/outputs/flutter-apk/*.apk"
+            token: ${{ secrets.PERSONAL_RELEASE_TOKEN }}
 
 
 
 
-
+#build/app/outputs/flutter-apk/app-release.apk
+#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
